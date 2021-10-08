@@ -34,7 +34,7 @@ public class StackInt {
     
     public int pop() {
         
-        for (int i=maxSize-1; i=0; i--){
+        for (int i=maxSize-1; i==0; i--){
             if(stackArray[i]==0) continue;
             int value = stackArray[i];
             stackArray[i] = 0;
@@ -47,7 +47,7 @@ public class StackInt {
     // @return верхний элемент, не удаляя его из стека
      
     public int peek() {
-         for (int i=maxSize-1; i=0; i--){
+         for (int i=maxSize-1; i==0; i--){
             if(stackArray[i]==0) continue;
             return stackArray[i];
         }
