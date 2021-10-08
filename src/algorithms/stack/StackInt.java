@@ -16,38 +16,56 @@ public class StackInt {
         top = -1;
     }
 
-    /**
-     * Добавление элемента в стек
-     */
+    
+     //Добавление элемента в стек
+    
     public void push(int value) {
+        
+        for (int i=0; i<maxSize; i++){
+            if(stackArray[i]!=0) continue;
+            stackArray[i]=value;
+            break;
+        }
 
     }
 
-    /**
-     * Извлечение элемента
-     */
+    
+     //Извлечение элемента
+    
     public int pop() {
+        
+        for (int i=maxSize-1; i=0; i--){
+            if(stackArray[i]==0) continue;
+            int value = stackArray[i];
+            stackArray[i] = 0;
+            return value;
+        }
 
     }
 
-    /**
-     *  @return верхний элемент, не удаляя его из стека
-     */
+    
+    // @return верхний элемент, не удаляя его из стека
+     
     public int peek() {
+         for (int i=maxSize-1; i=0; i--){
+            if(stackArray[i]==0) continue;
+            return stackArray[i];
+        }
 
     }
 
-    /**
-     * @return true, если стек пуст
-     */
+    
+    // @return true, если стек пуст
+     
     public boolean isEmpty() {
+        return stackArray[0]==0;
 
     }
 
-    /**
-     * @return true, если стек заполнен
-     */
+    
+    // @return true, если стек заполнен
+     
     public boolean isFull() {
-
+        return stackArray[maxSize]!=0;
     }
 }
