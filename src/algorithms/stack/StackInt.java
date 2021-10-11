@@ -21,6 +21,7 @@ public class StackInt {
     //Добавление элемента в стек
 
     public void push(int value) {
+        if (top==maxSize-1) return;
         top++;
         stackArray[top] = value;
 
@@ -55,6 +56,6 @@ public class StackInt {
     // @return true, если стек заполнен
 
     public boolean isFull() {
-        return top==maxSize;
+        return top==maxSize-1;
     }
 }
