@@ -14,20 +14,16 @@ public class StackInt {
     public StackInt(int size) {
         this.maxSize = size;
         stackArray = new int[maxSize];
-        top = maxSize-1;
+        top = -1;
     }
 
 
     //Добавление элемента в стек
 
     public void push(int value) {
-
-        for (int i=0; i<maxSize; i++){
-            if(stackArray[i]==0) {
-                stackArray[i]=value;
-                break;
-            }
-        }
+        if (top==maxSize-1) return;
+        top++;
+        stackArray[top] = value;
 
     }
 
@@ -36,33 +32,23 @@ public class StackInt {
 
     public int pop() {
 
-        for (int i=top; i>=0; i--){
-            if(stackArray[i]!=0) {
-                int value = stackArray[i];
-                stackArray[i]=0;
-                return value;
-            }
-        }
-        return 0;
+        top--;
+        return stackArray[top+1];
     }
 
 
     // @return верхний элемент, не удаляя его из стека
 
     public int peek() {
-        for (int i=top; i>=0; i--){
-            if(stackArray[i]!=0) {
-                return stackArray[i];
-            }
-        }
-        return 0;
+        
+        return stackArray[top];
     }
 
 
     // @return true, если стек пуст
 
     public boolean isEmpty() {
-        return stackArray[0]==0;
+        return top<0;
 
     }
 
@@ -70,6 +56,6 @@ public class StackInt {
     // @return true, если стек заполнен
 
     public boolean isFull() {
-        return stackArray[top]!=0;
+        return top==maxSize-1;
     }
 }
