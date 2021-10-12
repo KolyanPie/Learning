@@ -63,7 +63,7 @@ public class StackGeneric<T> {
 
 
     public boolean isEmpty() {
-        return top<0;
+        return top < 0;
 
     }
 
@@ -73,6 +73,6 @@ public class StackGeneric<T> {
 
 
     public boolean isFull() {
-        return top==maxSize-1;
+        return top == maxSize - 1;
     }
 }
