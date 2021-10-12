@@ -5,23 +5,23 @@ import java.util.ArrayList;
 public class StackApp {
 
     public static void main(String[] args) {
-        StackGeneric<Integer> stack = new StackGeneric(10);
-        stack.push(10);
-        stack.push(50);
-        stack.push(120);
-        stack.push(150);
+        StackGeneric<String> stack = new StackGeneric(10);
+        stack.push("1");
+        stack.push("2");
+        stack.push("3");
+        stack.push("4");
         stack.pop();
-        System.out.println(stack.peek()==120);
-        stack.push(40);
-        stack.push(50);
-        stack.push(60);
-        stack.push(70);
-        stack.push(80);
-        stack.push(90);
-        stack.push(100);
-        stack.push(110);
-        stack.push(120);
-        System.out.println(stack.peek()==100);
+        System.out.println(stack.peek().equals("3"));
+        stack.push("4new");
+        stack.push("5");
+        stack.push("6");
+        stack.push("6");
+        stack.push("8");
+        stack.push("9");
+        stack.push("10");
+        stack.push("11");
+        stack.push("12");
+        System.out.println(stack.peek().equals("10"));
         System.out.println(stack.isFull());
         for(int i=0;i<10;i++){
         stack.pop();
