@@ -1,19 +1,21 @@
-package algorithms.stack;
+package algorithms.stackGeneric;
 
+
+import java.util.Collection;
 
 /**
  * Этот класс должен реализовать базовую функциональность стека на основе массива.
  * Необходимо написать код в пропущенных методах
  */
-public class StackGeneric {
+public class StackGeneric<T> {
 
     private int maxSize;    // Размер массива
-    private int[] stackArray;
+    private Object[] stackArray;
     private int top;        // Индекс вершины стека
 
     public StackGeneric(int size) {
         this.maxSize = size;
-        stackArray = new int[maxSize];
+        stackArray = new Object[maxSize];
         top = -1;
     }
 
@@ -21,34 +23,39 @@ public class StackGeneric {
      * Добавление элемента в стек
      */
 
+    private void push(T type, Object[] element, int top) {
+        if (top == maxSize - 1) return;
+        stackArray[top] = type;
+    }
 
-    public void push(int value) {
-        if (top==maxSize-1) return;
+    public void push(T type) {
         top++;
-        stackArray[top] = value;
-
+        push(type,stackArray,top);
     }
 
     /**
      * Извлечение элемента
      */
-
-
-    public int pop() {
-
-        top--;
-        return stackArray[top+1];
+    private T pop(Object[] stackArray, int top) {
+        return (T)stackArray[top--];
     }
+
+    public T pop() {
+        return pop(stackArray, top);
+    }
+
 
     /**
      * @return верхний элемент, не удаляя его из стека
      */
 
+        private T peek(Object[] stackArray, int top) {
+            return (T)stackArray[top--];
+        }
 
-    public int peek() {
-        
-        return stackArray[top];
-    }
+        public T peek() {
+            return peek(stackArray, top);
+        }
 
     /**
      * @return true, если стек пуст

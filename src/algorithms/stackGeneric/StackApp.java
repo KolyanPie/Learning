@@ -1,12 +1,11 @@
-package algorithms.stack;
+package algorithms.stackGeneric;
 
 import java.util.ArrayList;
 
 public class StackApp {
 
     public static void main(String[] args) {
-        ArrayList<String> arrayList = new ArrayList<>();
-        StackInt stack = new StackInt(10);
+        StackGeneric<Integer> stack = new StackGeneric(10);
         stack.push(10);
         stack.push(50);
         stack.push(120);
